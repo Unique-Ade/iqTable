@@ -1,0 +1,3 @@
+#d1d5db - Table Background
+#5664f5  - Button Blue
+#e5e7eb  - Bg Color
