@@ -46,7 +46,7 @@ nav>img {
     cursor: pointer;
 }
 
-form {
+#generate_table {
     width: 60%;
     margin: 40px 250px;
     padding: 10px;
@@ -54,7 +54,7 @@ form {
 }
 
 
-form>h4 {
+#generate_table>h4 {
     margin-bottom: 20px;
 }
 
@@ -65,12 +65,12 @@ input {
 span>p {
     font-weight: 800;
 }
-form>p{
+#generate_table>p{
     font-weight: 800;
 }
 
 
-.enter_subject {
+#enter_subject {
     width: 100%;
     height: 30px;
     font-size: 15px;
@@ -81,7 +81,7 @@ form>p{
     background: transparent;
 }
 
-.enter_name {
+#enter_name {
     width: 380px;
     height: 30px;
     font-size: 15px;
@@ -92,7 +92,7 @@ form>p{
     background: transparent;
 }
 
-.enter_periods{
+#enter_periods{
     width: 380px;
     height: 30px;
     font-size: 15px;
