@@ -95,3 +95,27 @@ form>p{
     cursor: pointer;
     width: 100%;
 }
+
+
+footer{
+    background-color: black;
+    width: 100%;
+    color: white;
+    
+    padding: 50px 0px 50px 0px ;
+   
+}
+
+div{
+    display: flex; justify-content: space-around;
+    max-width: 800px;
+    margin: auto;
+}
+
+#footer_logo{
+    margin-bottom: 17px;
+}
+
+#contact{
+    margin-bottom: 17px;
+}
