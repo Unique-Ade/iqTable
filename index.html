@@ -26,12 +26,21 @@
             <p>Subject Name</p>
             <input type="text" placeholder="Enter subject name" class="enter_subject">
 
-            <p>Teacher</p>
-            <input type="text" placeholder="Enter teacher name" class="enter_name">
+            <div class="teacher_periods_section">
+                <span>
+                    <p>Teacher</p>
+                    <input type="text" placeholder="Enter teacher name" class="enter_name">
+                </span>
+              <span>
+                <p>Periods per Week</p>
+                <input type="text" placeholder="Enter Periods per week" class="enter_periods">
+              </span>
+                
+            </div>
 
             <button class="generate_timetable">Generate Timetable</button>
         </form>
-      <!---  <section class="output">
+        <!---  <section class="output">
             <h4>Generated Timetable</h4>
             Time table to be inserted here upon click
 
@@ -52,12 +61,9 @@
                     <p>Phone +123 456 7890</p>
                 </span>
             </div>
-            
         </footer>
-
-
-
     </main>
+    <script src="index.js"></script>
 </body>
 
 </html>
