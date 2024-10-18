@@ -6,8 +6,6 @@
 
 let subject = [];
 function subjectData() {
-
-
     //subject name
     let subjectName = document.querySelector('#enter_subject').value;
     //Subject Teacher name
@@ -27,3 +25,6 @@ function subjectData() {
     }
 
 }
+
+//Function that creates required periods per day without exceeding
+

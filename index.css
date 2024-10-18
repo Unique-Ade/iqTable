@@ -34,6 +34,21 @@ nav>img {
     padding-top: 80px;
     font-size: 22px;
     padding-bottom: 25px;
+    animation-name: banner_text;
+    animation-direction: normal;
+    animation-duration: 15s;
+    animation-iteration-count: 1;
+}
+
+
+@keyframes banner_text {
+    from {
+        transform: translate(-900px);
+    }
+
+    to {
+        transform: translate(0px);
+    }
 }
 
 .get_started_btn {
@@ -53,7 +68,6 @@ nav>img {
 
 }
 
-
 #generate_table>h4 {
     margin-bottom: 20px;
 }
@@ -65,10 +79,10 @@ input {
 span>p {
     font-weight: 800;
 }
-#generate_table>p{
+
+#generate_table>p {
     font-weight: 800;
 }
-
 
 #enter_subject {
     width: 100%;
@@ -92,7 +106,7 @@ span>p {
     background: transparent;
 }
 
-#enter_periods{
+#enter_periods {
     width: 380px;
     height: 30px;
     font-size: 15px;
