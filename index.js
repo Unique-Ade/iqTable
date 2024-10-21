@@ -26,5 +26,13 @@ function subjectData() {
 
 }
 
-//Function that creates required periods per day without exceeding
+//Function that generates time slot for subjects per day.
+
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+const periodsPerDay = 8;
+let timeTable = {};
+
+days.forEach((day)=>{
+   timeTable[day] = new Array(periodsPerDay).fill(null);
+})
 
