@@ -1,5 +1,5 @@
 //collect input values and create an object of subjects
-//keys - Subject, Teacher and Frequency.
+//keys - Subject, Teacher and periodsPerWeek:.
 
 //Function that stores input values as subject
 
@@ -16,13 +16,13 @@ function subjectData() {
         const subject = {
             subject: subjectName,
             teacher: teachertName,
-            periods: parseInt(periodsPerWeek)
+            periodsPerWeek: parseInt(periodsPerWeek)
         }
         subjects.push(subject);
-        // console.log(subject);
+        console.log(subjects);
     } else {
         alert("All inputs must be filled");
-    }
+    } 
 
 }
 
