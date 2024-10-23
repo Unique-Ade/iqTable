@@ -4,7 +4,7 @@
 //Function that stores input values as subject
 
 
-let subject = [];
+let subjects = [];
 function subjectData() {
     //subject name
     let subjectName = document.querySelector('#enter_subject').value;
@@ -13,13 +13,13 @@ function subjectData() {
     //No of periods per week
     let periodsPerWeek = document.querySelector('#enter_periods').value;
     if (subjectName && teachertName && periodsPerWeek) {
-        const subjects = {
+        const subject = {
             subject: subjectName,
             teacher: teachertName,
             periods: parseInt(periodsPerWeek)
         }
-        subject.push(subjects);
-        //console.log(subject);
+        subjects.push(subject);
+        // console.log(subject);
     } else {
         alert("All inputs must be filled");
     }
@@ -32,7 +32,35 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 const periodsPerDay = 8;
 let timeTable = {};
 
-days.forEach((day)=>{
-   timeTable[day] = new Array(periodsPerDay).fill(null);
+days.forEach((day) => {
+    timeTable[day] = new Array(periodsPerDay).fill(null);
 })
 
+// console.log(timeTable);
+
+//Assigning Subjects to Timetable randomly considering the total periods per week for each subject.
+
+//Note : Total Periods = 40 per week
+//     : Total subjectsPeriods must be <= 40
+//     : Total SubjectPeriods > 40 === Error Message : Maximum Subjects per week periods exceeded.
+
+const assignSubjects = () => {
+    subjects.forEach((subject) => {
+
+        let iteration = 0;
+        while (iteration < subject.periodsPerWeek) {
+            let randomDay = days[Math.floor(Math.random() * days.length)];
+            let randomPeriod = Math.floor(Math.random() * periodsPerDay);
+
+            if (!timeTable[randomDay][randomPeriod]) {
+                timeTable[randomDay][randomPeriod] = {
+                    subject: subject.subject,
+                    teacher: subject.teacher
+                }
+            }
+            iteration++;
+           
+        }
+    });
+    console.log(timeTable);
+}
