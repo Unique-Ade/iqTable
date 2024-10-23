@@ -124,6 +124,18 @@ span>p {
     background: transparent;
 }
 
+.addSubject{
+    border: none;
+    background-color: #5664f5;
+    color: white;
+    font-weight: 700;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 40%;
+    margin: 20px 29%;
+}
+
 .generate_timetable {
     border: none;
     background-color: #5664f5;

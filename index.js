@@ -22,7 +22,7 @@ function subjectData() {
         console.log(subjects);
     } else {
         alert("All inputs must be filled");
-    } 
+    }
 
 }
 
@@ -59,7 +59,7 @@ const assignSubjects = () => {
                 }
             }
             iteration++;
-           
+
         }
     });
     console.log(timeTable);

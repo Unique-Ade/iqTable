@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iqTable</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav>
-            <img src="./images/uis--calender.svg" alt="">
-            <h4 class="logo">iqTable</h4>
-        </nav>
+      <nav>
+        <img src="./images/uis--calender.svg" alt="" />
+        <h4 class="logo">iqTable</h4>
+      </nav>
     </header>
     <section class="banner">
-        <div class="animate">
-            <h3 class="automate_text">Automate Your School's Timetable</h3>
-            <!-- <h3 class="Your_Partner">Your partner in effortless timetable</h3> -->
-        </div>
-       
-        <button class="get_started_btn">Get Started</button>
+      <div class="animate">
+        <h3 class="automate_text">Automate Your School's Timetable</h3>
+        <!-- <h3 class="Your_Partner">Your partner in effortless timetable</h3> -->
+      </div>
+
+      <button class="get_started_btn">Get Started</button>
     </section>
 
     <main>
-        <section id="generate_table">
-            <h4>Enter Subjects to Generate Your Timetable</h4>
-            <p>Subject Name</p>
-            <input type="text" name="subject" placeholder="Enter subject name" id="enter_subject">
+      <section id="generate_table">
+        <h4>Enter Subjects to Generate Your Timetable</h4>
+        <p>Subject Name</p>
+        <input
+          type="text"
+          name="subject"
+          placeholder="Enter subject name"
+          id="enter_subject"
+        />
 
-            <div class="teacher_periods_section">
-                <span>
-                    <p>Teacher</p>
-                    <input type="text" name="teacher" placeholder="Enter teacher name" id="enter_name">
-                </span>
-              <span>
-                <p>Periods per Week</p>
-                <input type="text" name="periods" placeholder="Enter Periods per week " id="enter_periods">
-              </span>
-                
-            </div>
-            <button class="generate_timetable" onclick="subjectData()">Add Subject</button>
+        <div class="teacher_periods_section">
+          <span>
+            <p>Teacher</p>
+            <input
+              type="text"
+              name="teacher"
+              placeholder="Enter teacher name"
+              id="enter_name"
+            />
+          </span>
+          <span>
+            <p>Periods per Week</p>
+            <input
+              type="text"
+              name="periods"
+              placeholder="Enter Periods per week "
+              id="enter_periods"
+            />
+          </span>
+        </div>
+        <button class="addSubject" onclick="subjectData()">Add Subject</button>
 
-            <br> <br>
-            <button class="generate_timetable" onclick="assignSubjects()">Generate Timetable</button>
-        </section>
-        <!---  <section class="output">
+        <button class="generate_timetable" onclick="assignSubjects()">
+          Generate Timetable
+        </button>
+      </section>
+      <!---  <section class="output">
             <h4>Generated Timetable</h4>
             Time table to be inserted here upon click
 
@@ -55,21 +69,20 @@
             <button class="csv">Download CSV</button>
         </section>   --->
 
-        <footer>
-            <div>
-                <span>
-                    <h4 id="footer_logo">iqTable</h4>
-                    <p>Your partner in effortless timetable generation</p>
-                </span>
-                <span>
-                    <h4 id="contact">Contact Us</h4>
-                    <p>Email : support@iqtable.com</p>
-                    <p>Phone +123 456 7890</p>
-                </span>
-            </div>
-        </footer>
+      <footer>
+        <div>
+          <span>
+            <h4 id="footer_logo">iqTable</h4>
+            <p>Your partner in effortless timetable generation</p>
+          </span>
+          <span>
+            <h4 id="contact">Contact Us</h4>
+            <p>Email : support@iqtable.com</p>
+            <p>Phone +123 456 7890</p>
+          </span>
+        </div>
+      </footer>
     </main>
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>
