@@ -52,6 +52,8 @@ nav > img {
   color: red;
   text-align: center;
   margin-top: 40px;
+  width: 100%;
+  height: 30px;
 }
 
 @keyframes banner_text {
@@ -76,7 +78,7 @@ nav > img {
 
 #generate_table {
   width: 60%;
-  margin: 40px 250px;
+  margin: 0px 250px 40px 250px;
   padding: 10px;
 }
 
@@ -134,7 +136,7 @@ span > p {
   background-color: #5664f5;
   color: white;
   font-weight: 700;
-  padding: 12px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   width: 40%;
