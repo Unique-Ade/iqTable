@@ -1,173 +1,176 @@
 * {
-    padding: 0px;
-    margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 body {
-    background-color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-header{
-    width: 100%;
-    height: 60px;
-    position: sticky;
-    top: 0px;
+header {
+  width: 100%;
+  height: 60px;
+  position: sticky;
+  top: 0px;
 }
 
 nav {
-    display: flex;
-    max-width: 8%;
-    justify-content: space-around;
-    padding: 15px;
-    font-size: 22px;
+  display: flex;
+  max-width: 8%;
+  justify-content: space-around;
+  padding: 15px;
+  font-size: 22px;
 }
 
-nav>img {
-    width: 25px;
+nav > img {
+  width: 25px;
 }
 
 .banner {
-    background-image: url(./images/desktop-background.PNG);
-    background-size: cover;
-    width: 100%;
-    height: 250px;
-    text-align: center;
-    margin: auto;
-    border-radius: 10px;
+  background-image: url(./images/desktop-background.PNG);
+  background-size: cover;
+  width: 100%;
+  height: 250px;
+  text-align: center;
+  margin: auto;
+  border-radius: 10px;
 }
 
 .automate_text {
-    padding-top: 80px;
-    font-size: 22px;
-    padding-bottom: 25px;
-    animation-name: banner_text;
-    animation-direction: normal;
-    animation-duration: 15s;
-    animation-iteration-count: 1;
+  padding-top: 80px;
+  font-size: 22px;
+  padding-bottom: 25px;
+  animation-name: banner_text;
+  animation-direction: normal;
+  animation-duration: 15s;
+  animation-iteration-count: 1;
 }
 
+.errorMessages{
+    color: red;
+    text-align: center;
+    margin-top: 40px;
+}
 
 @keyframes banner_text {
-    from {
-        transform: translate(-900px);
-    }
+  from {
+    transform: translate(-900px);
+  }
 
-    to {
-        transform: translate(0px);
-    }
+  to {
+    transform: translate(0px);
+  }
 }
 
 .get_started_btn {
-    border: none;
-    background-color: #5664f5;
-    color: white;
-    font-weight: 700;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
+  border: none;
+  background-color: #5664f5;
+  color: white;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 #generate_table {
-    width: 60%;
-    margin: 40px 250px;
-    padding: 10px;
-
+  width: 60%;
+  margin: 40px 250px;
+  padding: 10px;
 }
 
-#generate_table>h4 {
-    margin-bottom: 20px;
+#generate_table > h4 {
+  margin-bottom: 20px;
 }
 
 input {
-    margin-bottom: 28px;
+  margin-bottom: 28px;
 }
 
-span>p {
-    font-weight: 800;
+span > p {
+  font-weight: 800;
 }
 
-#generate_table>p {
-    font-weight: 800;
+#generate_table > p {
+  font-weight: 800;
 }
 
 #enter_subject {
-    width: 100%;
-    height: 30px;
-    font-size: 15px;
-    padding-left: 10px;
-    border-radius: 6px;
-    outline: none;
-    border: 1px solid gray;
-    background: transparent;
+  width: 100%;
+  height: 30px;
+  font-size: 15px;
+  padding-left: 10px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid gray;
+  background: transparent;
 }
 
 #enter_name {
-    width: 380px;
-    height: 30px;
-    font-size: 15px;
-    padding-left: 10px;
-    border-radius: 6px;
-    outline: none;
-    border: 1px solid gray;
-    background: transparent;
+  width: 380px;
+  height: 30px;
+  font-size: 15px;
+  padding-left: 10px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid gray;
+  background: transparent;
 }
 
 #enter_periods {
-    width: 380px;
-    height: 30px;
-    font-size: 15px;
-    padding-left: 10px;
-    border-radius: 6px;
-    outline: none;
-    border: 1px solid gray;
-    background: transparent;
+  width: 380px;
+  height: 30px;
+  font-size: 15px;
+  padding-left: 10px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid gray;
+  background: transparent;
 }
 
-.addSubject{
-    border: none;
-    background-color: #5664f5;
-    color: white;
-    font-weight: 700;
-    padding: 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 40%;
-    margin: 20px 29%;
+.addSubject {
+  border: none;
+  background-color: #5664f5;
+  color: white;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 40%;
+  margin: 20px 29%;
 }
 
 .generate_timetable {
-    border: none;
-    background-color: #5664f5;
-    color: white;
-    font-weight: 700;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
+  border: none;
+  background-color: #5664f5;
+  color: white;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
 }
 
-
 footer {
-    background-color: black;
-    width: 100%;
-    color: white;
+  background-color: black;
+  width: 100%;
+  color: white;
 
-    padding: 50px 0px 50px 0px;
-
+  padding: 50px 0px 50px 0px;
 }
 
 div {
-    display: flex;
-    justify-content: space-around;
-    max-width: 800px;
-    margin: auto;
+  display: flex;
+  justify-content: space-around;
+  max-width: 800px;
+  margin: auto;
 }
 
 #footer_logo {
-    margin-bottom: 17px;
+  margin-bottom: 17px;
 }
 
 #contact {
-    margin-bottom: 17px;
+  margin-bottom: 17px;
 }

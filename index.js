@@ -5,6 +5,10 @@
 
 
 let subjects = [];
+let errors = {
+    error1: "All input fields must be filled",
+    error2: "Maximum slots Exceeded"
+};
 function subjectData() {
     //subject name
     let subjectName = document.querySelector('#enter_subject').value;
@@ -12,6 +16,9 @@ function subjectData() {
     let teachertName = document.querySelector('#enter_name').value;
     //No of periods per week
     let periodsPerWeek = document.querySelector('#enter_periods').value;
+
+
+    
     if (subjectName && teachertName && periodsPerWeek) {
         const subject = {
             subject: subjectName,
@@ -21,7 +28,9 @@ function subjectData() {
         subjects.push(subject);
         console.log(subjects);
     } else {
-        alert("All inputs must be filled");
+       let  errorMessage1 = errors["error1"];
+       let errorContent = document.querySelector('.errorMessage');
+       errorContent.textContent = errorMessage1;
     }
 
 }
@@ -43,6 +52,10 @@ days.forEach((day) => {
 //Note : Total Periods = 40 per week
 //     : Total subjectsPeriods must be <= 40
 //     : Total SubjectPeriods > 40 === Error Message : Maximum Subjects per week periods exceeded.
+//let currentSlotsUsed = No of slots filled:
+let totalSlots = 40;
+let filledSlots;
+let availableSlots;
 
 const assignSubjects = () => {
     subjects.forEach((subject) => {
