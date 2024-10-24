@@ -48,10 +48,10 @@ nav > img {
   animation-iteration-count: 1;
 }
 
-.errorMessages{
-    color: red;
-    text-align: center;
-    margin-top: 40px;
+.errorMessages {
+  color: red;
+  text-align: center;
+  margin-top: 40px;
 }
 
 @keyframes banner_text {
