@@ -1,6 +1,19 @@
 //collect input values and create an object of subjects
 //keys - Subject, Teacher and periodsPerWeek:.
 
+
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+const periodsPerDay = 8;
+let timeTable = {};
+//Function that generates time slot for subjects per day.
+
+let timeSlots = () => {
+    days.forEach((day) => {
+        timeTable[day] = new Array(periodsPerDay).fill(null);
+    });
+}
+
+
 //Function that stores input values as subject
 
 let subjects = [];
@@ -45,15 +58,7 @@ function subjectData() {
 
 }
 
-//Function that generates time slot for subjects per day.
 
-const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-const periodsPerDay = 8;
-let timeTable = {};
-
-days.forEach((day) => {
-    timeTable[day] = new Array(periodsPerDay).fill(null);
-});
 
 // console.log(timeTable);
 
@@ -83,11 +88,11 @@ const assignSubjects = () => {
             iteration++;
         }
 
-        
+
     });
-   
+
     //assignSubjects();
-    // console.log(timeTable['Monday']);
+    // console.log(timeTable);
 };
 
 
@@ -99,8 +104,8 @@ let displayTimeTable = () => {
 
     //table.innerHTML = "";
     let headerRow = "<tr> <th>Period </th>";
-    days.forEach((day)=>{
-       headerRow += `<th> ${day} </th>`;
+    days.forEach((day) => {
+        headerRow += `<th> ${day} </th>`;
     })
     headerRow += "</tr>";
     table.innerHTML += headerRow;
