@@ -5,44 +5,44 @@
 
 let subjects = [];
 let errors = {
-  error1: "All input fields must be filled",
-  error2: "Maximum slots Exceeded",
+    error1: "All input fields must be filled",
+    error2: "Maximum slots Exceeded",
 };
 
 let errorParent = document.querySelector(".errorMessages");
 
 function subjectData() {
-  //subject name
-  let subjectName = document.querySelector("#enter_subject").value;
-  //Subject Teacher name
-  let teachertName = document.querySelector("#enter_name").value;
-  //No of periods per week
-  let periodsPerWeek = document.querySelector("#enter_periods").value;
+    //subject name
+    let subjectName = document.querySelector("#enter_subject").value;
+    //Subject Teacher name
+    let teachertName = document.querySelector("#enter_name").value;
+    //No of periods per week
+    let periodsPerWeek = document.querySelector("#enter_periods").value;
 
-  if (subjectName && teachertName && periodsPerWeek) {
-    const subject = {
-      subject: subjectName,
-      teacher: teachertName,
-      periodsPerWeek: parseInt(periodsPerWeek),
-    };
-    subjects.push(subject);
-    console.log(subjects);
-  } else {
-    let errorMessage1 = errors["error1"];
-    let errorContent = document.querySelector(".errorMessage");
-    errorContent.textContent = errorMessage1;
+    if (subjectName && teachertName && periodsPerWeek) {
+        const subject = {
+            subject: subjectName,
+            teacher: teachertName,
+            periodsPerWeek: parseInt(periodsPerWeek),
+        };
+        subjects.push(subject);
+        console.log(subjects);
+    } else {
+        let errorMessage1 = errors["error1"];
+        let errorContent = document.querySelector(".errorMessage");
+        errorContent.textContent = errorMessage1;
 
-    //    //Error disappear function;
-    setTimeout(() => {
-        errorContent.textContent = "";
-      }, 5000);
-  }
+        //    //Error disappear function;
+        setTimeout(() => {
+            errorContent.textContent = "";
+        }, 5000);
+    }
 
 
 
-   
 
- 
+
+
 }
 
 //Function that generates time slot for subjects per day.
@@ -52,7 +52,7 @@ const periodsPerDay = 8;
 let timeTable = {};
 
 days.forEach((day) => {
-  timeTable[day] = new Array(periodsPerDay).fill(null);
+    timeTable[day] = new Array(periodsPerDay).fill(null);
 });
 
 // console.log(timeTable);
@@ -68,20 +68,42 @@ let filledSlots;
 let availableSlots;
 
 const assignSubjects = () => {
-  subjects.forEach((subject) => {
-    let iteration = 0;
-    while (iteration < subject.periodsPerWeek) {
-      let randomDay = days[Math.floor(Math.random() * days.length)];
-      let randomPeriod = Math.floor(Math.random() * periodsPerDay);
+    subjects.forEach((subject) => {
+        let iteration = 0;
+        while (iteration < subject.periodsPerWeek) {
+            let randomDay = days[Math.floor(Math.random() * days.length)];
+            let randomPeriod = Math.floor(Math.random() * periodsPerDay);
 
-      if (!timeTable[randomDay][randomPeriod]) {
-        timeTable[randomDay][randomPeriod] = {
-          subject: subject.subject,
-          teacher: subject.teacher,
-        };
-      }
-      iteration++;
-    }
-  });
-  console.log(timeTable);
+            if (!timeTable[randomDay][randomPeriod]) {
+                timeTable[randomDay][randomPeriod] = {
+                    subject: subject.subject,
+                    teacher: subject.teacher,
+                };
+            }
+            iteration++;
+        }
+
+        
+    });
+   
+    //assignSubjects();
+    // console.log(timeTable['Monday']);
 };
+
+
+//Function to display TimeTable
+
+let displayTimeTable = () => {
+    let table = document.getElementById('#table');
+    //creating table rows and appending to it.
+
+    // let row1 = ` <tr>  <th>  ${days[0]}  </th>`;
+    //  row1 += `<td> ${timeTable['Monday']}   </td>`
+    // row1 += "</tr>";
+    // table += row1
+
+    
+
+    console.log(table);
+
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./images/uis--calender.svg" type="image/x-icon">
     <title>iqTable</title>
   </head>
 
@@ -66,12 +67,24 @@
 
         <p class="note">Maximum amount of slots: 40</p>
 
-        <button class="generate_timetable" onclick="assignSubjects()">
+        <button class="generate_timetable" onclick="displayTimeTable()">
           Generate Timetable
         </button>
       </section>
        <!---Generated Timetable-->
-       
+       <table id="table" border=""> 
+        <tr >
+          <th>Day/Time</th>
+          <th>8.30am - 9.10am</th>
+          <th>9.10am - 9.50am</th>
+          <th>9.50am - 10.30am</th>
+          <th>10.30am - 11.00am</th>
+          <th>11.00am - 12.10pm</th>
+          <th>12.10pm - 12.40pm</th>
+          <th>12.40pm - 1.20pm</th>
+          <th>1.20pm - 2.00pm</th>
+        </tr>
+       </table>
       <footer>
         <div>
           <span>

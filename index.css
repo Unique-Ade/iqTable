@@ -154,6 +154,10 @@ span > p {
   width: 100%;
 }
 
+/* #table > tr> th{
+    border: 1px solid black;
+} */
+
 footer {
   background-color: black;
   width: 100%;
