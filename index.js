@@ -97,12 +97,14 @@ let displayTimeTable = () => {
     let table = document.getElementById('#table');
     //creating table rows and appending to it.
 
-    // let row1 = ` <tr>  <th>  ${days[0]}  </th>`;
-    //  row1 += `<td> ${timeTable['Monday']}   </td>`
-    // row1 += "</tr>";
-    // table += row1
+    //table.innerHTML = "";
+    let headerRow = "<tr> <th>Period </th>";
+    days.forEach((day)=>{
+       headerRow += `<th> ${day} </th>`;
+    })
+    headerRow += "</tr>";
+    table.innerHTML += headerRow;
 
-    
 
     console.log(table);
 
