@@ -5,14 +5,11 @@
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 const periodsPerDay = 8;
 let timeTable = {};
-//Function that generates time slot for subjects per day.
 
-let timeSlots = () => {
+//Iterating through days of the week array
     days.forEach((day) => {
         timeTable[day] = new Array(periodsPerDay).fill(null);
     });
-}
-
 
 //Function that stores input values as subject
 
@@ -51,11 +48,6 @@ function subjectData() {
         }, 5000);
     }
 
-
-
-
-
-
 }
 
 
@@ -87,12 +79,10 @@ const assignSubjects = () => {
             }
             iteration++;
         }
-
-
     });
 
     //assignSubjects();
-    // console.log(timeTable);
+   console.log(timeTable);
 };
 
 
@@ -111,6 +101,6 @@ let displayTimeTable = () => {
     table.innerHTML += headerRow;
 
 
-    console.log(table);
+   // console.log(table);
 
 }
