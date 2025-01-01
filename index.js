@@ -7,9 +7,9 @@ const periodsPerDay = 8;
 let timeTable = {};
 
 //Iterating through days of the week array
-    days.forEach((day) => {
-        timeTable[day] = new Array(periodsPerDay).fill(null);
-    });
+days.forEach((day) => {
+    timeTable[day] = new Array(periodsPerDay).fill(null);
+});
 
 //Function that stores input values as subject
 
@@ -30,12 +30,11 @@ function subjectData() {
     let periodsPerWeek = document.querySelector("#enter_periods").value;
 
     if (subjectName && teachertName && periodsPerWeek) {
-        const subject = {
+        subjects.push( {
             subject: subjectName,
             teacher: teachertName,
             periodsPerWeek: parseInt(periodsPerWeek),
-        };
-        subjects.push(subject);
+        });
         console.log(subjects);
     } else {
         let errorMessage1 = errors["error1"];
@@ -47,7 +46,6 @@ function subjectData() {
             errorContent.textContent = "";
         }, 5000);
     }
-
 }
 
 
@@ -80,27 +78,68 @@ const assignSubjects = () => {
             iteration++;
         }
     });
-
-    //assignSubjects();
-   console.log(timeTable);
+    console.log(timeTable);
 };
+
+//Function to Assign Daily Constraints 
+let dailyLimit =()=>{
+    const maxSubjectsPerDay = 5;
+
+    days.forEach((day)=>{
+         let count = 0;
+         for(let period = 0; period < periodsPerDay; period++){
+             if(timeTable[day][period] !== null){
+                count++;
+                if(count > maxSubjectsPerDay){
+                    timeTable[day][period] = null;
+                }
+             }
+         }
+    })
+}
+
+
+
+
+
 
 
 //Function to display TimeTable
 
 let displayTimeTable = () => {
-    let table = document.getElementById('#table');
+    let table = document.getElementById('table');
     //creating table rows and appending to it.
 
-    //table.innerHTML = "";
-    let headerRow = "<tr> <th>Period </th>";
+    table.innerHTML = "";
+    //let row1 = document.createElement('tr');
+    let row1 = "<tr><th>Period/Day</th>";
     days.forEach((day) => {
-        headerRow += `<th> ${day} </th>`;
+        row1 += `<th> ${day} </th>`;
     })
-    headerRow += "</tr>";
-    table.innerHTML += headerRow;
+    row1 += "</tr>";
+    table.innerHTML += row1;
+
+    //creating other rows
+    for (let period = 1; period < 9; period++) {
+        let otherRows = `<tr><th>Period: ${period}<th>`;
+        let toBeAlloted = timeTable[day][period];
+            if (toBeAlloted) {
+                otherRows += `<td> ${toBeAlloted.subject} (${toBeAlloted.teacher}) </td>`;
+            }
+            else {
+                otherRows += "<td> </td>";
+            }
+        otherRows += timeTable;
+        otherRows += "</tr>";
+        table.innerHTML += otherRows;
+    //     days.forEach((day) => {
+            
+
+           
+    //    // })
+     }
 
 
-   // console.log(table);
-
+    assignSubjects();
+    //console.log(table.textContent);
 }
