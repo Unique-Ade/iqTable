@@ -153,11 +153,39 @@ button.downloadButton:hover {
 }
 
 /* Footer Section */
-footer {
+/* footer {
   background-color: #5664f5;
   color: white;
   text-align: center;
   padding: 15px 0;
   margin-top: 20px;
   font-size: 14px;
+} */
+footer {
+  background-color: #5664f5;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+}
+
+footer a {
+  color: #ffcc00; /* Highlight links in a contrasting color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.banner .Your_Partner {
+  font-size: 10px;
+  color: #333;
+  font-style: italic;
+  margin-top: 10px;
+  border: 1px solid black;
+  display: inline;
+  padding: 6px;
+  border-radius: 5px;
 }
