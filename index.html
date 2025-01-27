@@ -1,58 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iqTable - Timetable Generator</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        td[contenteditable="true"] {
-            background-color: #fffaf0;
-        }
-    </style>
-</head>
-<body>
-    <h1>iqTable - Timetable Generator</h1>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="uis--calender.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <nav>
+        <img src="/images/uis--calender.svg" alt="iqTable Logo" />
+        <h4 class="logo">iqTable</h4>
+      </nav>
+    </header>
 
-    <!-- Form to Add Subject -->
-    <form id="addSubjectForm">
-        <label for="day">Day:</label>
-        <select id="day">
+    <!-- Banner Section -->
+    <section class="banner">
+      <h3 class="automate_text">Automate Your School's Timetable</h3>
+      <!-- <h3 class="Your_Partner">Your partner in effortless timetable</h3> -->
+    </section>
+
+    <!-- Main Section -->
+    <main>
+      <!-- Input Section for Adding Subjects -->
+      <section id="subject-entry">
+        <h2>Timetable Entry</h2>
+        <form id="addSubjectForm">
+          <label for="day">Day:</label>
+          <select id="day">
             <option value="Monday">Monday</option>
             <option value="Tuesday">Tuesday</option>
             <option value="Wednesday">Wednesday</option>
             <option value="Thursday">Thursday</option>
             <option value="Friday">Friday</option>
-        </select>
+          </select>
 
-        <label for="period">Period (1-8):</label>
-        <input type="number" id="period" min="1" max="8" required>
+          <label for="period">Period (1-8):</label>
+          <input type="number" id="period" min="1" max="8" required />
 
-        <label for="subject">Subject:</label>
-        <input type="text" id="enterSubject" required>
+          <label for="subject">Subject:</label>
+          <input type="text" id="enterSubject" required />
 
-        <label for="teacher">Teacher:</label>
-        <input type="text" id="enterTeacher" required>
+          <label for="teacher">Teacher:</label>
+          <input type="text" id="enterTeacher" required />
 
-        <button type="submit">Add Subject</button>
-    </form>
+          <button type="submit">Add Subject</button>
+        </form>
+      </section>
 
-    <button id="downloadCSV">Download Timetable as CSV</button>
+      <!-- Timetable Display Section -->
+      <section id="timetable-display">
+        <h2>Generated Timetable</h2>
+        <table id="timeTable"></table>
+      </section>
 
-    <!-- Table to Display Timetable -->
-    <table id="timeTable"></table>
+      <!-- CSV Download Section -->
+      <section id="download-section">
+        <button id="downloadCSV" class="downloadButton">
+          Download Timetable as CSV
+        </button>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <p>
+          &copy; 2025 iqTable - Your partner in effortless timetable generation.
+        </p>
+      </div>
+    </footer>
 
     <script src="index.js"></script>
-</body>
+  </body>
 </html>

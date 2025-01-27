@@ -1,182 +1,163 @@
-* {
-  padding: 0px;
-  margin: 0px;
-}
-
+/* General Styles */
 body {
-  background-color: white;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e5e7eb; /* Background color */
+  color: #333;
+  line-height: 1.6;
 }
 
+/* Header Styles */
 header {
-  width: 100%;
-  height: 60px;
-  position: sticky;
-  top: 0px;
+  background-color: #5664f5; /* Header and button blue */
+  color: white;
+  padding: 10px 20px;
 }
 
-nav {
+header img {
+  width: 40px;
+  height: 40px;
+}
+
+header .logo {
+  font-size: 24px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+nav{
   display: flex;
-  max-width: 8%;
-  justify-content: space-around;
-  padding: 15px;
-  font-size: 22px;
+  align-items: center;
 }
 
-nav > img {
-  width: 25px;
-}
-
+/* Banner Section */
 .banner {
-  background-image: url(./images/desktop-background.PNG);
-  background-size: cover;
-  width: 100%;
-  height: 250px;
   text-align: center;
-  margin: auto;
-  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+  margin: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* background-image: url(./images/Background\ Image.jpeg);
+  background-size:contain */
 }
 
-.automate_text {
-  padding-top: 80px;
-  font-size: 22px;
-  padding-bottom: 25px;
-  animation-name: banner_text;
-  animation-direction: normal;
-  animation-duration: 15s;
-  animation-iteration-count: 1;
+.banner .automate_text {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #5664f5; /* Blue */
+  color: grey;
 }
 
-.errorMessages {
-  color: red;
-  text-align: center;
-  margin-top: 40px;
+.banner .Your_Partner {
+  font-size: 18px;
+  color: #333;
+  font-style: italic;
+}
+
+/* Main Content */
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Section */
+form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+form select,
+form button {
   width: 100%;
-  height: 30px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+form input{
+  width: 97.5%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+
 }
 
-@keyframes banner_text {
-  from {
-    transform: translate(-900px);
-  }
-
-  to {
-    transform: translate(0px);
-  }
-}
-
-.get_started_btn {
-  border: none;
+form button {
   background-color: #5664f5;
   color: white;
-  font-weight: 700;
-  padding: 10px;
-  border-radius: 6px;
+  border: none;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-#generate_table {
-  width: 60%;
-  margin: 0px 250px 40px 250px;
-  padding: 10px;
+form button:hover {
+  background-color: #4451cc;
 }
 
-#generate_table > h4 {
+h2{
+  font-family: cursive;
+}
+/* Timetable Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
   margin-bottom: 20px;
+  background-color: #d1d5db; /* Table background */
 }
 
-input {
-  margin-bottom: 28px;
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
 }
 
-span > p {
-  font-weight: 800;
-}
-
-#generate_table > p {
-  font-weight: 800;
-}
-
-#enter_subject {
-  width: 100%;
-  height: 30px;
-  font-size: 15px;
-  padding-left: 10px;
-  border-radius: 6px;
-  outline: none;
-  border: 1px solid gray;
-  background: transparent;
-}
-
-#enter_name {
-  width: 380px;
-  height: 30px;
-  font-size: 15px;
-  padding-left: 10px;
-  border-radius: 6px;
-  outline: none;
-  border: 1px solid gray;
-  background: transparent;
-}
-
-#enter_periods {
-  width: 380px;
-  height: 30px;
-  font-size: 15px;
-  padding-left: 10px;
-  border-radius: 6px;
-  outline: none;
-  border: 1px solid gray;
-  background: transparent;
-}
-
-.addSubject {
-  border: none;
+th {
   background-color: #5664f5;
   color: white;
-  font-weight: 700;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 40%;
-  margin: 20px 29%;
 }
 
-.generate_timetable {
-  border: none;
+td[contenteditable="true"] {
+  background-color: #fffaf0;
+  cursor: text;
+}
+
+/* Button Section */
+button.downloadButton {
+  display: block;
+  margin: 0 auto;
   background-color: #5664f5;
   color: white;
-  font-weight: 700;
-  padding: 10px;
-  border-radius: 6px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
-  width: 100%;
+  transition: background-color 0.3s;
 }
 
-/* #table > tr> th{
-    border: 1px solid black;
-} */
+button.downloadButton:hover {
+  background-color: #4451cc;
+}
 
+/* Footer Section */
 footer {
-  background-color: black;
-  width: 100%;
+  background-color: #5664f5;
   color: white;
-
-  padding: 50px 0px 50px 0px;
-}
-
-div {
-  display: flex;
-  justify-content: space-around;
-  max-width: 800px;
-  margin: auto;
-}
-
-#footer_logo {
-  margin-bottom: 17px;
-}
-
-#contact {
-  margin-bottom: 17px;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+  font-size: 14px;
 }
