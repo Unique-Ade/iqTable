@@ -1,109 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="index.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="./images/uis--calender.svg"
-      type="image/x-icon"
-    />
-    <title>iqTable</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iqTable - Timetable Generator</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        td[contenteditable="true"] {
+            background-color: #fffaf0;
+        }
+    </style>
+</head>
+<body>
+    <h1>iqTable - Timetable Generator</h1>
 
-  <body>
-    <header>
-      <nav>
-        <img src="./images/uis--calender.svg" alt="" />
-        <h4 class="logo">iqTable</h4>
-      </nav>
-    </header>
-    <section class="banner">
-      <div class="animate">
-        <h3 class="automate_text">Automate Your School's Timetable</h3>
-        <!-- <h3 class="Your_Partner">Your partner in effortless timetable</h3> -->
-      </div>
+    <!-- Form to Add Subject -->
+    <form id="addSubjectForm">
+        <label for="day">Day:</label>
+        <select id="day">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+        </select>
 
-      <a href="#footer_logo"
-        ><button class="get_started_btn">Get Started</button></a
-      >
-    </section>
+        <label for="period">Period (1-8):</label>
+        <input type="number" id="period" min="1" max="8" required>
 
-    <section class="errorMessages">
-      <p class="errorMessage"></p>
-    </section>
+        <label for="subject">Subject:</label>
+        <input type="text" id="enterSubject" required>
 
-    <main>
-      <section id="generate_table">
-        <h4>Enter Subjects to Generate Your Timetable</h4>
-        <p>Subject Name</p>
-        <input
-          type="text"
-          name="subject"
-          placeholder="Enter subject name"
-          id="enter_subject"
-        />
+        <label for="teacher">Teacher:</label>
+        <input type="text" id="enterTeacher" required>
 
-        <div class="teacher_periods_section">
-          <span>
-            <p>Teacher</p>
-            <input
-              type="text"
-              name="teacher"
-              placeholder="Enter teacher name"
-              id="enter_name"
-            />
-          </span>
-          <span>
-            <p>Periods per Week</p>
-            <input
-              type="text"
-              name="periods"
-              placeholder="Enter Periods per week "
-              id="enter_periods"
-            />
-          </span>
-        </div>
-        <button class="addSubject" onclick="subjectData()" id="addSubject">
-          Add Subject
-        </button>
+        <button type="submit">Add Subject</button>
+    </form>
 
-        <p class="note">Maximum amount of slots: 40</p>
+    <button id="downloadCSV">Download Timetable as CSV</button>
 
-        <button class="generate_timetable" onclick="displayTimeTable()">
-          Generate Timetable
-        </button>
-      </section>
-      <!---Generated Timetable-->
-      <table id="table" border="">
-        <!-- <tr >
-          <th>Day/Time</th>
-          <th>8.30am - 9.10am</th>
-          <th>9.10am - 9.50am</th>
-          <th>9.50am - 10.30am</th>
-          <th>10.30am - 11.00am</th>
-          <th>11.00am - 12.10pm</th>
-          <th>12.10pm - 12.40pm</th>
-          <th>12.40pm - 1.20pm</th>
-          <th>1.20pm - 2.00pm</th>
-        </tr> -->
-      </table>
-     
-    </main>
-    <footer>
-      <div>
-        <span>
-          <h4 id="footer_logo">iqTable</h4>
-          <p>Your partner in effortless timetable generation</p>
-        </span>
-        <span>
-          <h4 id="contact">Contact Us</h4>
-          <p>Email : support@iqtable.com</p>
-          <p>Phone +123 456 7890</p>
-        </span>
-      </div>
-    </footer>
+    <!-- Table to Display Timetable -->
+    <table id="timeTable"></table>
+
     <script src="index.js"></script>
-  </body>
+</body>
 </html>

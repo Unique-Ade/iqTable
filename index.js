@@ -1,145 +1,116 @@
-//collect input values and create an object of subjects
-//keys - Subject, Teacher and periodsPerWeek:.
-
-
+// Global Variables
+const timeTable = {}; // Stores timetable data
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-const periodsPerDay = 8;
-let timeTable = {};
+const periodsPerDay = 8; // Total periods per day
 
-//Iterating through days of the week array
-days.forEach((day) => {
-    timeTable[day] = new Array(periodsPerDay).fill(null);
-});
-
-//Function that stores input values as subject
-
-let subjects = [];
-let errors = {
-    error1: "All input fields must be filled",
-    error2: "Maximum slots Exceeded",
-};
-
-let errorParent = document.querySelector(".errorMessages");
-
-function subjectData() {
-    //subject name
-    let subjectName = document.querySelector("#enter_subject").value;
-    //Subject Teacher name
-    let teachertName = document.querySelector("#enter_name").value;
-    //No of periods per week
-    let periodsPerWeek = document.querySelector("#enter_periods").value;
-
-    if (subjectName && teachertName && periodsPerWeek) {
-        subjects.push( {
-            subject: subjectName,
-            teacher: teachertName,
-            periodsPerWeek: parseInt(periodsPerWeek),
-        });
-        console.log(subjects);
-    } else {
-        let errorMessage1 = errors["error1"];
-        let errorContent = document.querySelector(".errorMessage");
-        errorContent.textContent = errorMessage1;
-
-        //    //Error disappear function;
-        setTimeout(() => {
-            errorContent.textContent = "";
-        }, 5000);
-    }
-}
-
-
-
-// console.log(timeTable);
-
-//Assigning Subjects to Timetable randomly considering the total periods per week for each subject.
-
-//Note : Total Periods = 40 per week
-//     : Total subjectsPeriods must be <= 40
-//     : Total SubjectPeriods > 40 === Error Message : Maximum Subjects per week periods exceeded.
-//let currentSlotsUsed = No of slots filled:
-let totalSlots = 40;
-let filledSlots;
-let availableSlots;
-
-const assignSubjects = () => {
-    subjects.forEach((subject) => {
-        let iteration = 0;
-        while (iteration < subject.periodsPerWeek) {
-            let randomDay = days[Math.floor(Math.random() * days.length)];
-            let randomPeriod = Math.floor(Math.random() * periodsPerDay);
-
-            if (!timeTable[randomDay][randomPeriod]) {
-                timeTable[randomDay][randomPeriod] = {
-                    subject: subject.subject,
-                    teacher: subject.teacher,
-                };
-            }
-            iteration++;
-        }
+// Initialize the timetable structure
+function initializeTable() {
+    days.forEach(day => {
+        timeTable[day] = Array(periodsPerDay).fill(null); // Fill each day with null slots
     });
-    console.log(timeTable);
-};
+}
+initializeTable(); // Initialize when the page loads
 
-//Function to Assign Daily Constraints 
-let dailyLimit =()=>{
-    const maxSubjectsPerDay = 5;
+// Display the timetable in the DOM
+function displayTimeTable() {
+    const table = document.getElementById("timeTable");
+    table.innerHTML = ""; // Clear any existing content
 
-    days.forEach((day)=>{
-         let count = 0;
-         for(let period = 0; period < periodsPerDay; period++){
-             if(timeTable[day][period] !== null){
-                count++;
-                if(count > maxSubjectsPerDay){
-                    timeTable[day][period] = null;
-                }
-             }
-         }
-    })
+    // Create header row
+    let headerRow = "<tr><th>Day</th>";
+    for (let i = 1; i <= periodsPerDay; i++) {
+        headerRow += `<th>Period ${i}</th>`;
+    }
+    headerRow += "</tr>";
+    table.innerHTML += headerRow;
+
+    // Create rows for each day
+    days.forEach(day => {
+        let row = `<tr><td>${day}</td>`;
+        timeTable[day].forEach((slot, periodIndex) => {
+            const slotValue = slot ? `${slot.subject} (${slot.teacher})` : "";
+            row += `<td contenteditable="true" data-day="${day}" data-period="${periodIndex}">${slotValue}</td>`;
+        });
+        row += "</tr>";
+        table.innerHTML += row;
+    });
+
+    // Add event listeners to editable cells
+    addCellListeners();
 }
 
+// Add event listeners for editable timetable cells
+function addCellListeners() {
+    const cells = document.querySelectorAll("#timeTable td[contenteditable='true']");
+    cells.forEach(cell => {
+        cell.addEventListener("blur", event => {
+            const day = cell.dataset.day;
+            const period = parseInt(cell.dataset.period);
+            const value = cell.textContent.trim();
 
-
-
-
-
-
-//Function to display TimeTable
-
-let displayTimeTable = () => {
-    let table = document.getElementById('table');
-    //creating table rows and appending to it.
-
-    table.innerHTML = "";
-    //let row1 = document.createElement('tr');
-    let row1 = "<tr><th>Period/Day</th>";
-    days.forEach((day) => {
-        row1 += `<th> ${day} </th>`;
-    })
-    row1 += "</tr>";
-    table.innerHTML += row1;
-
-    //creating other rows
-    for (let period = 1; period < 9; period++) {
-        let otherRows = `<tr><th>Period: ${period}<th>`;
-        let toBeAlloted = timeTable[day][period];
-            if (toBeAlloted) {
-                otherRows += `<td> ${toBeAlloted.subject} (${toBeAlloted.teacher}) </td>`;
+            if (value) {
+                // Split input into subject and teacher
+                const [subject, teacher] = value.split("(").map(str => str.replace(")", "").trim());
+                timeTable[day][period] = { subject, teacher };
+            } else {
+                timeTable[day][period] = null; // Clear slot if empty
             }
-            else {
-                otherRows += "<td> </td>";
-            }
-        otherRows += timeTable;
-        otherRows += "</tr>";
-        table.innerHTML += otherRows;
-    //     days.forEach((day) => {
-            
-
-           
-    //    // })
-     }
-
-
-    assignSubjects();
-    //console.log(table.textContent);
+        });
+    });
 }
+
+// Download the timetable as CSV
+function downloadCSV() {
+    let csvContent = "data:text/csv;charset=utf-8,";
+
+    // Add header row
+    csvContent += "Day," + Array.from({ length: periodsPerDay }, (_, i) => `Period ${i + 1}`).join(",") + "\n";
+
+    // Add rows for each day
+    days.forEach(day => {
+        const row = [day];
+        timeTable[day].forEach(slot => {
+            row.push(slot ? `${slot.subject} (${slot.teacher})` : "");
+        });
+        csvContent += row.join(",") + "\n";
+    });
+
+    // Trigger download
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "timetable.csv");
+    document.body.appendChild(link); // Required for some browsers
+    link.click();
+    document.body.removeChild(link); // Cleanup
+}
+
+// Handle adding subjects
+function addSubject(event) {
+    event.preventDefault();
+
+    // Get input values
+    const day = document.getElementById("day").value;
+    const period = parseInt(document.getElementById("period").value) - 1; // Convert to 0-indexed
+    const subject = document.getElementById("enterSubject").value.trim();
+    const teacher = document.getElementById("enterTeacher").value.trim();
+
+    if (!day || period < 0 || !subject || !teacher) {
+        alert("All fields are required. Please fill them in correctly.");
+        return;
+    }
+
+    // Add subject to the timetable
+    timeTable[day][period] = { subject, teacher };
+    displayTimeTable(); // Refresh the displayed timetable
+
+    // Reset the form
+    document.getElementById("addSubjectForm").reset();
+}
+
+// Event Listeners
+document.getElementById("addSubjectForm").addEventListener("submit", addSubject);
+document.getElementById("downloadCSV").addEventListener("click", downloadCSV);
+
+// Display the empty timetable on page load
+displayTimeTable();
